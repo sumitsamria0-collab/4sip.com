@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4SIP Water Bottles</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #111;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: #fff;
+    }
+
+    .logo h1 {
+      font-size: 42px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      margin: 0 15px;
+      font-weight: 600;
+    }
+
+    nav a.active {
+      color: #1976d2;
+      border-bottom: 2px solid #1976d2;
+      padding-bottom: 5px;
+    }
+
+    .icons i {
+      margin-left: 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 8%;
+      background: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, .3)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content h1 {
+      font-size: 72px;
+      line-height: 1.1;
+      font-weight: 900;
+    }
+
+    .hero-content span {
+      color: #1f84ff;
+    }
+
+    .hero-content p {
+      font-size: 30px;
+      margin: 25px 0;
+    }
+
+    .btn {
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .hero-bottles {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end;
+    }
+
+    .bottle {
+      width: 120px;
+      height: 340px;
+      border-radius: 25px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      font-weight: 900;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      color: white;
+    }
+
+    .bottle::before {
+      content: '';
+      position: absolute;
+      top: -25px;
+      width: 70px;
+      height: 35px;
+      background: #222;
+      border-radius: 10px;
+    }
+
+    .chill {
+      background: #0f3f7f;
+    }
+
+    .flow {
+      background: #9deff2;
+    }
+
+    .pure {
+      background: #fff;
+      color: #111;
+      border: 2px solid #ddd;
+    }
+
+    .glow {
+      background: #111;
+    }
+
+    .products {
+      padding: 80px 8%;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .products p {
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      padding: 30px;
+      border-radius: 20px;
+      background: #f7f7f7;
+    }
+
+    .card .bottle {
+      margin: auto;
+      height: 250px;
+      width: 90px;
+      font-size: 40px;
+    }
+
+    .card h3 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card button {
+      margin-top: 15px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 700;
+      background: #1976d2;
+      cursor: pointer;
+    }
+
+    .features {
+      padding: 50px 8%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: #fafafa;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .feature i {
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: #1976d2;
+    }
+
+    .about {
+      padding: 80px 8%;
+      display: flex;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 55%;
+      border-radius: 20px;
+    }
+
+    .about-content h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #001d4d;
+      color: white;
+      padding: 60px 8%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    footer h2,
+    footer h3 {
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    footer i {
+      font-size: 25px;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+
+    @media(max-width:900px) {
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-bottles {
+        margin-top: 50px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about {
+        flex-direction: column;
+      }
+
+      .about img {
+        width: 100%;
+      }
+
+      footer {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+  </style>
+  
+</head>
+
+<body>
+
+  <header>
+
+    <div class="logo">
+      <h1>4SIP</h1>
+      <span>WATER BOTTLES</span>
+    </div>
+
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About Us</a>
+      <a href="#">Why 4SIP?</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="icons">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    
+
+  </header>
+
+  <section class="hero">
+
+    <div class="hero-content">
+      <h1>
+        STAY HYDRATED.<br>
+        STAY FRESH.<br>
+        STAY <span>4SIP.</span>
+      </h1>
+
+      <p>Premium Water Bottles<br>for Every Lifestyle.</p>
+
+      <button class="btn">EXPLORE PRODUCTS</button>
+    </div>
+
+    <div class="hero-bottles">
+
+      <div class="bottle chill">4SIP</div>
+      <div class="bottle flow">4SIP</div>
+      <div class="bottle pure">4SIP</div>
+      <div class="bottle glow">4SIP</div>
+
+    </div>
+
+  </section>
+
+  <section class="products">
+
+    <h2>OUR PRODUCTS</h2>
+    <p>Designed to keep you hydrated in style.</p>
+
+    <div class="product-grid">
+
+      <div class="card">
+        <div class="text-center">
+          <img src="4.jpeg" class="rounded" width=200 height="200" alt="...">
+
+          <h3>4SIP CHILL</h3>
+          <p>Cool looks. Hot performance.</p>
+          <button>SHOP NOW</button>
+        </div>
+
+        <div class="card">
+          <div class="text-center">
+            <img src="samria.jpeg" class="rounded" height=200 width="200" alt="...">
+          </div>
+          <h3>4SIP FLOW</h3>
+          <p>Flow with style. Stay active.</p>
+          <button>SHOP NOW</button>
+        </div>
+
+        <div class="card">
+          <div class="text-center">
+            <img src="ss.jpeg" class="rounded" width=200 height="200" alt="...">
+          </div>
+          <h3>4SIP PURE</h3>
+          <p>Pure inside. Pure outside.</p>
+          <button>SHOP NOW</button>
+        </div>
+
+        <div class="card">
+          <div class="text-center">
+            <img src="sumit.jpeg" class="rounded" width=200 height="200" alt="...">
+          </div>
+          <h3>4SIP GLOW</h3>
+          <p>Glow every day. Shine always.</p>
+          <button>SHOP NOW</button>
+        </div>
+
+      </div>
+
+  </section>
+
+  <section class="features">
+
+    <div class="feature">
+      <i class="fa-solid fa-shield"></i>
+      <h3>PREMIUM QUALITY</h3>
+      <p>High quality materials for long lasting use.</p>
+    </div>
+
+    <div class="feature">
+      <i class="fa-solid fa-leaf"></i>
+      <h3>BPA FREE</h3>
+      <p>100% safe for you and environment.</p>
+    </div>
+
+    <div class="feature">
+      <i class="fa-solid fa-droplet"></i>
+      <h3>LEAK PROOF</h3>
+      <p>No more spills. Carry with confidence.</p>
+    </div>
+
+    <div class="feature">
+      <i class="fa-regular fa-snowflake"></i>
+      <h3>HOT & COLD</h3>
+      <p>Keeps drinks hot or cold for hours.</p>
+    </div>
+
+  </section>
+
+  <section class="about">
+
+    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600">
+
+    <div class="about-content">
+      <h2>ABOUT 4SIP</h2>
+
+      <p>
+        At 4SIP, we believe hydration is the key to a better life.
+        Our mission is to provide stylish, durable and eco-friendly bottles
+        that fit your everyday needs.
+      </p>
+
+      <button class="btn">LEARN MORE</button>
+    </div>
+
+  </section>
+
+  <footer>
+
+    <div>
+      <h2>4SIP</h2>
+      <p>Stay Hydrated. Stay Fresh.</p>
+      <p>Stay 4SIP.</p>
+    </div>
+
+    <div>
+      <h3>QUICK LINKS</h3>
+      <p>Home</p>
+      <p>Products</p>
+      <p>About Us</p>
+      <p>Why 4SIP?</p>
+      <p>Contact</p>
+    </div>
+
+    <div>
+      <h3>CUSTOMER CARE</h3>
+      <p>FAQs</p>
+      <p>Shipping & Returns</p>
+      <p>Privacy Policy</p>
+      <p>Terms & Conditions</p>
+    </div>
+
+    <div>
+      <h3>FOLLOW US</h3>
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-youtube"></i>
+    </div>
+
+  </footer>
+
+  <script>
+    document.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        alert("Welcome to 4SIP");
+      });
+    });
+  </script>
+
+</body>
+
+</html>
